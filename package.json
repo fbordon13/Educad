@@ -1,7 +1,7 @@
 {
-  "name": "bolsa-trabajo-estudiantil",
+  "name": "servieduca",
   "version": "1.0.0",
-  "description": "Plataforma de bolsa de trabajo para estudiantes y negocios locales",
+  "description": "Plataforma de pasantías y prácticas profesionales para estudiantes en Panamá",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run server\" \"npm run client\"",
@@ -10,7 +10,7 @@
     "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
     "build": "cd frontend && npm run build"
   },
-  "keywords": ["job-board", "students", "local-business", "react", "nodejs"],
+  "keywords": ["internships", "pasantias", "panama", "students", "react", "nodejs"],
   "author": "Fernando Bordon",
   "license": "MIT",
   "devDependencies": {

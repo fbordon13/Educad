@@ -1,16 +1,16 @@
-# Bolsa de Trabajo Estudiantil
+# ServiEduca - Pasantías y Prácticas Profesionales en Panamá
 
-Una plataforma web que conecta estudiantes con negocios locales para oportunidades de trabajo de medio tiempo.
+Una plataforma web que conecta estudiantes panameños con oportunidades de pasantías y prácticas profesionales en empresas y organizaciones.
 
 ## Características
 
-- **Página principal** con listado de vacantes y filtros de búsqueda
-- **Sistema de usuarios dual**: Estudiantes y Negocios
+- **Página principal** con información sobre pasantías en Panamá
+- **Sistema de usuarios dual**: Estudiantes y Empresas
 - **Panel de control** para cada tipo de usuario
 - **Sistema de aplicaciones** con un clic
-- **Gestión completa de vacantes** (crear, editar, eliminar)
+- **Gestión completa de pasantías** (crear, editar, eliminar)
 - **Subida de CV** y perfiles completos
-- **Notificaciones** en tiempo real
+- **Información sobre requisitos y beneficios** de las pasantías
 
 ## Tecnologías
 
@@ -33,8 +33,8 @@ Una plataforma web que conecta estudiantes con negocios locales para oportunidad
 
 1. Clona el repositorio
 ```bash
-git clone <repository-url>
-cd bolsa-trabajo-estudiantil
+git clone https://github.com/fbordon13/Educad.git
+cd ServiEduca
 ```
 
 2. Instala todas las dependencias
@@ -45,7 +45,7 @@ npm run install-all
 3. Configura las variables de entorno
 ```bash
 # En backend/.env
-MONGODB_URI=mongodb://localhost:27017/bolsa-trabajo-estudiantil
+MONGODB_URI=mongodb://localhost:27017/servieduca
 JWT_SECRET=tu-jwt-secret-aqui
 PORT=5000
 
@@ -63,7 +63,7 @@ Esto iniciará tanto el servidor backend (puerto 5000) como el frontend (puerto 
 ## Estructura del Proyecto
 
 ```
-bolsa-trabajo-estudiantil/
+ServiEduca/
 ├── frontend/          # Aplicación React
 ├── backend/           # API Node.js/Express
 ├── package.json       # Scripts principales
@@ -75,13 +75,14 @@ bolsa-trabajo-estudiantil/
 ### Para Estudiantes
 - Registro e inicio de sesión
 - Completar perfil con CV
-- Buscar y aplicar a vacantes
+- Buscar y aplicar a pasantías
 - Ver historial de aplicaciones
 - Panel de control personal
+- Información sobre requisitos y beneficios
 
-### Para Negocios
+### Para Empresas
 - Registro e inicio de sesión
-- Publicar vacantes de empleo
+- Publicar oportunidades de pasantías
 - Gestionar ofertas (editar/eliminar)
 - Revisar aplicaciones recibidas
 - Panel de control empresarial
@@ -93,14 +94,14 @@ bolsa-trabajo-estudiantil/
 - `POST /api/auth/login` - Inicio de sesión
 - `GET /api/auth/profile` - Obtener perfil actual
 
-### Vacantes
-- `GET /api/jobs` - Listar todas las vacantes
-- `POST /api/jobs` - Crear nueva vacante (solo negocios)
-- `GET /api/jobs/:id` - Obtener vacante específica
-- `PUT /api/jobs/:id` - Actualizar vacante (solo propietario)
-- `DELETE /api/jobs/:id` - Eliminar vacante (solo propietario)
+### Pasantías
+- `GET /api/jobs` - Listar todas las pasantías
+- `POST /api/jobs` - Crear nueva pasantía (solo empresas)
+- `GET /api/jobs/:id` - Obtener pasantía específica
+- `PUT /api/jobs/:id` - Actualizar pasantía (solo propietario)
+- `DELETE /api/jobs/:id` - Eliminar pasantía (solo propietario)
 
 ### Aplicaciones
-- `POST /api/applications` - Aplicar a vacante
-- `GET /api/applications/job/:jobId` - Ver aplicaciones de una vacante
+- `POST /api/applications` - Aplicar a pasantía
+- `GET /api/applications/job/:jobId` - Ver aplicaciones de una pasantía
 - `GET /api/applications/user` - Ver aplicaciones del usuario actual
