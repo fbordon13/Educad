@@ -457,6 +457,206 @@
             height: 100px;
             resize: vertical;
         }
+
+        /* Carrusel Styles */
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+
+        .carousel-card {
+            background: var(--bg-primary);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px var(--shadow);
+            border: 1px solid var(--border-color);
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-card .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+        }
+
+        .carousel-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-secondary);
+        }
+
+        .carousel-card p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .carousel-btn {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: var(--accent-secondary);
+            transform: scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent-primary);
+            transform: scale(1.3);
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: var(--accent-secondary);
+            font-size: 1.1rem;
+            background: var(--bg-secondary);
+            transition: all 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .faq-question.active {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .faq-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 1.5rem;
+        }
+
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 1.5rem;
+        }
+
+        .faq-answer p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-card {
+                padding: 2rem 1.5rem;
+                min-height: 250px;
+            }
+
+            .carousel-card .feature-icon {
+                font-size: 3rem;
+            }
+
+            .carousel-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .carousel-card p {
+                font-size: 1rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .faq-answer.active {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -569,49 +769,72 @@
     <section id="beneficios" class="features" style="background: var(--bg-primary);">
         <div class="container">
             <h2>📋 Beneficios y Aspectos a Destacar</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-briefcase"></i>
+            <div class="carousel-container">
+                <div class="carousel-wrapper" id="beneficiosCarousel">
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <h3>Experiencia Real en Empresa</h3>
+                            <p>Aprenderás de la práctica profesional, trabajarás en proyectos que pueden ser relevantes para tu carrera.</p>
+                        </div>
                     </div>
-                    <h3>Experiencia Real en Empresa</h3>
-                    <p>Aprenderás de la práctica profesional, trabajarás en proyectos que pueden ser relevantes para tu carrera.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Desarrollo de Habilidades</h3>
+                            <p>Trabajo en equipo, comunicación, responsabilidad, capacidad de resolver problemas y aplicar teoría a la práctica.</p>
+                        </div>
                     </div>
-                    <h3>Desarrollo de Habilidades</h3>
-                    <p>Trabajo en equipo, comunicación, responsabilidad, capacidad de resolver problemas y aplicar teoría a la práctica.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-tie"></i>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3>Posibilidad de Vinculación Laboral</h3>
+                            <p>Muchas empresas consideran a los pasantes para empleos después de completar con éxito su pasantía.</p>
+                        </div>
                     </div>
-                    <h3>Posibilidad de Vinculación Laboral</h3>
-                    <p>Muchas empresas consideran a los pasantes para empleos después de completar con éxito su pasantía.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-certificate"></i>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <h3>Certificación o Carta de Práctica</h3>
+                            <p>Muchas instituciones entregan constancia de que realizaste la práctica, lo que es buen soporte para tu CV.</p>
+                        </div>
                     </div>
-                    <h3>Certificación o Carta de Práctica</h3>
-                    <p>Muchas instituciones entregan constancia de que realizaste la práctica, lo que es buen soporte para tu CV.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-dollar-sign"></i>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h3>Regulación e Incentivos</h3>
+                            <p>El programa "Aprender Haciendo" estipula asignación mensual para el pasante (B/. 450) y póliza de riesgo para jóvenes de 18 a 25 años.</p>
+                        </div>
                     </div>
-                    <h3>Regulación e Incentivos</h3>
-                    <p>El programa "Aprender Haciendo" estipula asignación mensual para el pasante (B/. 450) y póliza de riesgo para jóvenes de 18 a 25 años.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-calendar-alt"></i>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3>Duración y Modalidad</h3>
+                            <p>Duración típica: 6 meses o equivalente a 130 días hábiles. Modalidad: presencial, mixta o flexible según la empresa.</p>
+                        </div>
                     </div>
-                    <h3>Duración y Modalidad</h3>
-                    <p>Duración típica: 6 meses o equivalente a 130 días hábiles. Modalidad: presencial, mixta o flexible según la empresa.</p>
                 </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="moveCarousel('beneficios', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn" onclick="moveCarousel('beneficios', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="carousel-dots" id="beneficiosDots"></div>
             </div>
         </div>
     </section>
@@ -620,43 +843,72 @@
     <section id="aplicar" class="jobs">
         <div class="container">
             <h2>📌 Cómo Aplicar (Pasos Típicos)</h2>
-            <div class="jobs-grid">
-                <div class="job-card">
-                    <div class="job-title">1. Verifica Requisitos</div>
-                    <div class="job-description">
-                        Verifica que cumples los requisitos: estar matriculado/la universidad, niveles de estudio, competencias, disponibilidad de horario.
+            <div class="carousel-container">
+                <div class="carousel-wrapper" id="aplicarCarousel">
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>1. Verifica Requisitos</h3>
+                            <p>Verifica que cumples los requisitos: estar matriculado/la universidad, niveles de estudio, competencias, disponibilidad de horario.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>2. Prepara Documentación</h3>
+                            <p>Prepara tu hoja de vida (CV), carta de motivación y en algunos casos carta de tu universidad que autorice la práctica.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <h3>3. Envía Documentación</h3>
+                            <p>Envía la documentación según lo indicado por la empresa u organización (correo electrónico, formulario online, etc.).</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>4. Entrevista o Evaluación</h3>
+                            <p>Entrevista o evaluación técnica (según empresa) y selección.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h3>5. Firma de Convenio</h3>
+                            <p>Firma de convenio o acuerdo de práctica (si aplica), duración de la misma, supervisión, horario, responsabilidades.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="carousel-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h3>6. Inicio y Seguimiento</h3>
+                            <p>Inicio de la práctica, seguimiento, evaluación y al final recibir constancia o carta de terminación.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="job-card">
-                    <div class="job-title">2. Prepara Documentación</div>
-                    <div class="job-description">
-                        Prepara tu hoja de vida (CV), carta de motivación y en algunos casos carta de tu universidad que autorice la práctica.
-                    </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="moveCarousel('aplicar', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-btn" onclick="moveCarousel('aplicar', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-                <div class="job-card">
-                    <div class="job-title">3. Envía Documentación</div>
-                    <div class="job-description">
-                        Envía la documentación según lo indicado por la empresa u organización (correo electrónico, formulario online, etc.).
-                    </div>
-                </div>
-                <div class="job-card">
-                    <div class="job-title">4. Entrevista o Evaluación</div>
-                    <div class="job-description">
-                        Entrevista o evaluación técnica (según empresa) y selección.
-                    </div>
-                </div>
-                <div class="job-card">
-                    <div class="job-title">5. Firma de Convenio</div>
-                    <div class="job-description">
-                        Firma de convenio o acuerdo de práctica (si aplica), duración de la misma, supervisión, horario, responsabilidades.
-                    </div>
-                </div>
-                <div class="job-card">
-                    <div class="job-title">6. Inicio y Seguimiento</div>
-                    <div class="job-description">
-                        Inicio de la práctica, seguimiento, evaluación y al final recibir constancia o carta de terminación.
-                    </div>
-                </div>
+                <div class="carousel-dots" id="aplicarDots"></div>
             </div>
         </div>
     </section>
@@ -665,41 +917,59 @@
     <section id="faq" class="features" style="background: var(--bg-secondary);">
         <div class="container">
             <h2>💡 Preguntas Frecuentes (FAQ)</h2>
-            <div class="jobs-grid">
-                <div class="job-card">
-                    <div class="job-title">¿Se puede hacer mientras estudio?</div>
-                    <div class="job-description">
-                        Sí, muchas prácticas están diseñadas para estudiantes activos y permiten horarios flexibles que se adaptan a tus clases.
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Se puede hacer mientras estudio?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, muchas prácticas están diseñadas para estudiantes activos y permiten horarios flexibles que se adaptan a tus clases.</p>
                     </div>
                 </div>
-                <div class="job-card">
-                    <div class="job-title">¿Cuántas horas por semana?</div>
-                    <div class="job-description">
-                        Varía según la empresa y el programa. Muchas son de medio tiempo y se adaptan al horario académico del estudiante.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Cuántas horas por semana?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Varía según la empresa y el programa. Muchas son de medio tiempo y se adaptan al horario académico del estudiante.</p>
                     </div>
                 </div>
-                <div class="job-card">
-                    <div class="job-title">¿Se remunera?</div>
-                    <div class="job-description">
-                        No siempre es remunerada. Sin embargo, el programa "Aprender Haciendo" sí estipula una asignación mensual de B/. 450 para jóvenes de 18-25 años.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Se remunera?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No siempre es remunerada. Sin embargo, el programa "Aprender Haciendo" sí estipula una asignación mensual de B/. 450 para jóvenes de 18-25 años.</p>
                     </div>
                 </div>
-                <div class="job-card">
-                    <div class="job-title">¿Cuánto dura una pasantía?</div>
-                    <div class="job-description">
-                        Puede variar. En reglamentos de práctica profesional se indica por ejemplo 6 meses o equivalente a "130 días hábiles" para cumplir.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Cuánto dura una pasantía?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Puede variar. En reglamentos de práctica profesional se indica por ejemplo 6 meses o equivalente a "130 días hábiles" para cumplir.</p>
                     </div>
                 </div>
-                <div class="job-card">
-                    <div class="job-title">¿Puedo hacerlo fuera de Ciudad de Panamá?</div>
-                    <div class="job-description">
-                        Depende de la empresa u organización. Algunas ofrecen modalidades remotas o tienen presencia en otras provincias.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Puedo hacerlo fuera de Ciudad de Panamá?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Depende de la empresa u organización. Algunas ofrecen modalidades remotas o tienen presencia en otras provincias.</p>
                     </div>
                 </div>
-                <div class="job-card">
-                    <div class="job-title">¿Qué modalidades hay disponibles?</div>
-                    <div class="job-description">
-                        Muchas son presenciales, pero hay empresas que permiten modalidad mixta o flexible (especialmente para estudiantes) siempre que no choque con tus clases.
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>¿Qué modalidades hay disponibles?</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Muchas son presenciales, pero hay empresas que permiten modalidad mixta o flexible (especialmente para estudiantes) siempre que no choque con tus clases.</p>
                     </div>
                 </div>
             </div>
@@ -859,6 +1129,99 @@
                     });
                 }
             });
+        });
+
+        // Carrusel functionality
+        const carouselState = {
+            beneficios: 0,
+            aplicar: 0
+        };
+
+        const carouselConfig = {
+            beneficios: { total: 6, carouselId: 'beneficiosCarousel', dotsId: 'beneficiosDots' },
+            aplicar: { total: 6, carouselId: 'aplicarCarousel', dotsId: 'aplicarDots' }
+        };
+
+        function initCarousel(name) {
+            const config = carouselConfig[name];
+            const dotsContainer = document.getElementById(config.dotsId);
+            
+            // Crear dots
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i < config.total; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goToSlide(name, i);
+                dotsContainer.appendChild(dot);
+            }
+            
+            updateCarousel(name);
+        }
+
+        function moveCarousel(name, direction) {
+            const config = carouselConfig[name];
+            carouselState[name] += direction;
+            
+            if (carouselState[name] < 0) {
+                carouselState[name] = config.total - 1;
+            } else if (carouselState[name] >= config.total) {
+                carouselState[name] = 0;
+            }
+            
+            updateCarousel(name);
+        }
+
+        function goToSlide(name, index) {
+            carouselState[name] = index;
+            updateCarousel(name);
+        }
+
+        function updateCarousel(name) {
+            const config = carouselConfig[name];
+            const carousel = document.getElementById(config.carouselId);
+            const dots = document.querySelectorAll(`#${config.dotsId} .carousel-dot`);
+            
+            // Mover carrusel
+            carousel.style.transform = `translateX(-${carouselState[name] * 100}%)`;
+            
+            // Actualizar dots
+            dots.forEach((dot, index) => {
+                if (index === carouselState[name]) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // FAQ Toggle Function
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const answer = faqItem.querySelector('.faq-answer');
+            const isActive = element.classList.contains('active');
+            
+            // Cerrar todas las otras preguntas
+            document.querySelectorAll('.faq-item').forEach(item => {
+                if (item !== faqItem) {
+                    item.querySelector('.faq-question').classList.remove('active');
+                    item.querySelector('.faq-answer').classList.remove('active');
+                }
+            });
+            
+            // Toggle la pregunta actual
+            if (isActive) {
+                element.classList.remove('active');
+                answer.classList.remove('active');
+            } else {
+                element.classList.add('active');
+                answer.classList.add('active');
+            }
+        }
+
+        // Inicializar carruseles al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            initCarousel('beneficios');
+            initCarousel('aplicar');
         });
     </script>
 </body>
