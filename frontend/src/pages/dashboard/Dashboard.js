@@ -15,7 +15,8 @@ import {
   ArrowRight,
   Building2,
   GraduationCap,
-  Loader2
+  Loader2,
+  Download
 } from 'lucide-react';
 
 const Dashboard = () => {
@@ -339,7 +340,7 @@ const Dashboard = () => {
               <Plus className="w-6 h-6 text-primary-600" />
             </div>
             <div>
-              <h3 className="font-medium text-gray-900">Publicar Trabajo</h3>
+              <h3 className="font-medium text-gray-900">Post Job</h3>
               <p className="text-sm text-gray-600">Crear nueva vacante</p>
             </div>
           </Link>
@@ -367,6 +368,19 @@ const Dashboard = () => {
             <div>
               <h3 className="font-medium text-gray-900">Aplicaciones</h3>
               <p className="text-sm text-gray-600">Revisar candidatos</p>
+            </div>
+          </Link>
+
+          <Link
+            to="/export"
+            className="flex items-center p-4 border border-gray-200 rounded-lg hover:border-primary-300 hover:bg-primary-50 transition-colors"
+          >
+            <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+              <Download className="w-6 h-6 text-orange-600" />
+            </div>
+            <div>
+              <h3 className="font-medium text-gray-900">Export Data</h3>
+              <p className="text-sm text-gray-600">Download Excel files</p>
             </div>
           </Link>
         </div>

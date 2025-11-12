@@ -20,6 +20,7 @@ import Profile from './pages/profile/Profile';
 import Applications from './pages/applications/Applications';
 import MyJobs from './pages/jobs/MyJobs';
 import JobApplications from './pages/jobs/JobApplications';
+import ExportData from './pages/admin/ExportData';
 import NotFound from './pages/NotFound';
 
 // Protected Route Component
@@ -81,6 +82,12 @@ function App() {
               <Route path="/edit-job/:id" element={
                 <ProtectedRoute allowedRoles={['business']}>
                   <EditJob />
+                </ProtectedRoute>
+              } />
+              
+              <Route path="/export" element={
+                <ProtectedRoute>
+                  <ExportData />
                 </ProtectedRoute>
               } />
               

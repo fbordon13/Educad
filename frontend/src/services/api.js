@@ -101,6 +101,14 @@ export const usersAPI = {
   getDashboardStats: () => api.get('/users/dashboard-stats'),
 };
 
+// API de Exportación
+export const exportAPI = {
+  exportUsers: () => api.get('/export/users', { responseType: 'blob' }),
+  exportJobs: () => api.get('/export/jobs', { responseType: 'blob' }),
+  exportApplications: () => api.get('/export/applications', { responseType: 'blob' }),
+  exportAll: () => api.get('/export/all', { responseType: 'blob' }),
+};
+
 // API de utilidades
 export const utilsAPI = {
   health: () => api.get('/health'),
