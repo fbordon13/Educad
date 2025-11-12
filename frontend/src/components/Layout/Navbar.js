@@ -55,7 +55,7 @@ const Navbar = () => {
                 <Briefcase className="w-5 h-5 text-white" />
               </div>
               <span className="text-lg font-bold text-gray-900">
-                Bolsa Trabajo
+                Job Board
               </span>
             </Link>
           </div>
@@ -67,7 +67,7 @@ const Navbar = () => {
                 {/* Navegación desktop simplificada */}
                 <div className="hidden md:flex items-center space-x-4">
                   <Link to="/jobs" className="text-gray-700 hover:text-primary-600 text-sm font-medium">
-                    Trabajos
+                    Jobs
                   </Link>
                   <Link to="/dashboard" className="text-gray-700 hover:text-primary-600 text-sm font-medium">
                     Dashboard
@@ -88,7 +88,7 @@ const Navbar = () => {
                       )}
                     </div>
                     <span className="text-gray-700 font-medium hidden sm:block">
-                      {user?.profile?.firstName || user?.profile?.companyName || 'Usuario'}
+                      {user?.profile?.firstName || user?.profile?.companyName || 'User'}
                     </span>
                   </button>
 
@@ -101,7 +101,7 @@ const Navbar = () => {
                         onClick={() => setIsProfileMenuOpen(false)}
                       >
                         <Settings className="w-4 h-4 mr-2" />
-                        Mi Perfil
+                        My Profile
                       </Link>
 
                       {hasRole('student') && (
@@ -111,7 +111,7 @@ const Navbar = () => {
                           onClick={() => setIsProfileMenuOpen(false)}
                         >
                           <FileText className="w-4 h-4 mr-2" />
-                          Mis Aplicaciones
+                          My Applications
                         </Link>
                       )}
 
@@ -123,7 +123,7 @@ const Navbar = () => {
                             onClick={() => setIsProfileMenuOpen(false)}
                           >
                             <Briefcase className="w-4 h-4 mr-2" />
-                            Publicar Trabajo
+                            Post Job
                           </Link>
                           <Link
                             to="/my-jobs"
@@ -131,7 +131,7 @@ const Navbar = () => {
                             onClick={() => setIsProfileMenuOpen(false)}
                           >
                             <Briefcase className="w-4 h-4 mr-2" />
-                            Mis Trabajos
+                            My Jobs
                           </Link>
                         </>
                       )}
@@ -143,7 +143,7 @@ const Navbar = () => {
                         className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         <LogOut className="w-4 h-4 mr-2" />
-                        Cerrar Sesión
+                        Sign Out
                       </button>
                     </div>
                   )}
@@ -169,19 +169,19 @@ const Navbar = () => {
                   to="/jobs"
                   className="text-gray-700 hover:text-primary-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Trabajos
+                  Jobs
                 </Link>
                 <Link
                   to="/login"
                   className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
                 >
-                  Iniciar Sesión
+                  Sign In
                 </Link>
                 <Link
                   to="/register"
                   className="bg-primary-600 text-white hover:bg-primary-700 px-4 py-2 rounded-md text-sm font-medium transition-colors"
                 >
-                  Registrarse
+                  Register
                 </Link>
               </div>
             )}
@@ -197,7 +197,7 @@ const Navbar = () => {
                 className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Trabajos
+                Jobs
               </Link>
               <Link
                 to="/dashboard"
@@ -211,7 +211,7 @@ const Navbar = () => {
                 className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Mi Perfil
+                My Profile
               </Link>
               
               {hasRole('student') && (
@@ -220,7 +220,7 @@ const Navbar = () => {
                   className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Mis Aplicaciones
+                  My Applications
                 </Link>
               )}
               
@@ -231,14 +231,14 @@ const Navbar = () => {
                     className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Publicar Trabajo
+                    Post Job
                   </Link>
                   <Link
                     to="/my-jobs"
                     className="block px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    Mis Trabajos
+                    My Jobs
                   </Link>
                 </>
               )}
@@ -247,7 +247,7 @@ const Navbar = () => {
                 onClick={handleLogout}
                 className="block w-full text-left px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:bg-gray-100"
               >
-                Cerrar Sesión
+                Sign Out
               </button>
             </div>
           </div>

@@ -23,7 +23,7 @@ const Home = () => {
     const fetchHomeData = async () => {
       try {
         const featuredResponse = await jobsAPI.getFeaturedJobs();
-        setFeaturedJobs(featuredResponse.data.jobs.slice(0, 3)); // Solo 3 trabajos destacados
+        setFeaturedJobs(featuredResponse.data.jobs.slice(0, 3)); // Only 3 featured jobs
       } catch (error) {
         console.error('Error fetching home data:', error);
       } finally {
@@ -58,10 +58,10 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-4 py-16">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Pasantías y Prácticas Profesionales en Panamá
+              Internships and Professional Practices in Panama
             </h1>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
-              Una pasantía/práctica profesional es una experiencia de trabajo supervisada en una empresa u organización, en la cual el estudiante aplica los conocimientos adquiridos académicamente en un entorno real. En muchos casos se considera parte del plan de estudios para la titulación o graduación.
+              An internship/professional practice is a supervised work experience in a company or organization, in which the student applies the knowledge acquired academically in a real environment. In many cases it is considered part of the study plan for graduation.
             </p>
 
             {/* Search Bar Simplificado */}
@@ -71,7 +71,7 @@ const Home = () => {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <input
                     type="text"
-                    placeholder="Buscar pasantía o práctica profesional..."
+                    placeholder="Search for internship or professional practice..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     className="w-full pl-10 pr-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
@@ -81,7 +81,7 @@ const Home = () => {
                   type="submit"
                   className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-6 py-3 rounded-lg font-semibold transition-colors"
                 >
-                  Buscar
+                  Search
                 </button>
               </div>
             </form>
@@ -92,14 +92,14 @@ const Home = () => {
                 to="/jobs"
                 className="bg-white text-primary-700 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors"
               >
-                Ver Pasantías Disponibles
+                View Available Internships
               </Link>
               {!isAuthenticated && (
                 <Link
                   to="/register"
                   className="border-2 border-white text-white hover:bg-white hover:text-primary-700 px-6 py-3 rounded-lg font-semibold transition-colors"
                 >
-                  Registrarse
+                  Register
                 </Link>
               )}
             </div>
@@ -110,30 +110,30 @@ const Home = () => {
       {/* Qué son las Pasantías */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-8">¿Qué son las Pasantías/Prácticas para Estudiantes en Panamá?</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">What are Internships/Practices for Students in Panama?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <GraduationCap className="w-8 h-8 text-blue-600" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Experiencia Real</h3>
-              <p className="text-gray-600 mb-4">Una pasantía/práctica profesional es una experiencia de trabajo supervisada en una empresa u organización, donde aplicas los conocimientos adquiridos académicamente en un entorno real.</p>
+              <h3 className="text-xl font-bold mb-2">Real Experience</h3>
+              <p className="text-gray-600 mb-4">An internship/professional practice is a supervised work experience in a company or organization, where you apply the knowledge acquired academically in a real environment.</p>
             </div>
             
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Briefcase className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Parte del Plan de Estudios</h3>
-              <p className="text-gray-600 mb-4">En muchos casos se considera parte del plan de estudios para la titulación o graduación, cumpliendo requisitos académicos mientras adquieres experiencia práctica.</p>
+              <h3 className="text-xl font-bold mb-2">Part of the Study Plan</h3>
+              <p className="text-gray-600 mb-4">In many cases it is considered part of the study plan for graduation, fulfilling academic requirements while gaining practical experience.</p>
             </div>
 
             <div className="bg-white rounded-lg p-6 text-center">
               <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-yellow-600" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Programa Aprender Haciendo</h3>
-              <p className="text-gray-600 mb-4">En Panamá existe el programa "Aprender Haciendo" del MITRADEL que busca insertar jóvenes de 17 a 24 años en empresas privadas a través de pasantías.</p>
+              <h3 className="text-xl font-bold mb-2">Learning by Doing Program</h3>
+              <p className="text-gray-600 mb-4">In Panama there is the "Aprender Haciendo" (Learning by Doing) program from MITRADEL that seeks to place young people aged 17 to 24 in private companies through internships.</p>
             </div>
           </div>
         </div>
@@ -144,52 +144,52 @@ const Home = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-2xl font-bold mb-4">✅ Requisitos Comunes</h2>
+              <h2 className="text-2xl font-bold mb-4">✅ Common Requirements</h2>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Estar matriculado en una institución educativa (universidad o técnica) o estar próximo a graduarse</span>
+                  <span>Be enrolled in an educational institution (university or technical) or be close to graduating</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Presentar hoja de vida, copia de cédula y, en ocasiones, póliza de seguro estudiantil</span>
+                  <span>Submit resume, ID copy and, in some cases, student insurance policy</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Carta de la universidad indicando que la práctica forma parte del plan de estudios</span>
+                  <span>University letter indicating that the practice is part of the study plan</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Disponibilidad de horario compatible con tus clases</span>
+                  <span>Schedule availability compatible with your classes</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>En algunos casos, buen rendimiento académico y competencias específicas</span>
+                  <span>In some cases, good academic performance and specific competencies</span>
                 </li>
               </ul>
             </div>
             <div>
-              <h2 className="text-2xl font-bold mb-4">📋 Beneficios</h2>
+              <h2 className="text-2xl font-bold mb-4">📋 Benefits</h2>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Experiencia real en empresa y desarrollo de habilidades profesionales</span>
+                  <span>Real company experience and professional skills development</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Posibilidad de vinculación laboral después de completar la pasantía</span>
+                  <span>Employment opportunity after completing the internship</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Certificación o carta de práctica para tu CV</span>
+                  <span>Certification or practice letter for your CV</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Programa "Aprender Haciendo": asignación mensual de B/. 450 para jóvenes de 18-25 años</span>
+                  <span>"Aprender Haciendo" (Learning by Doing) program: monthly allowance of B/. 450 for young people aged 18-25</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-primary-600 mr-2">•</span>
-                  <span>Duración típica: 6 meses o 130 días hábiles. Modalidad presencial, mixta o flexible</span>
+                  <span>Typical duration: 6 months or 130 working days. In-person, mixed or flexible modality</span>
                 </li>
               </ul>
             </div>
@@ -201,14 +201,14 @@ const Home = () => {
       {featuredJobs.length > 0 && (
         <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-8">Pasantías Disponibles</h2>
+            <h2 className="text-3xl font-bold text-center mb-8">Available Internships</h2>
             
             <div className="grid md:grid-cols-3 gap-6 mb-8">
               {featuredJobs.map((job) => (
                 <div key={job._id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                   <div className="flex items-center justify-between mb-3">
                     <span className="bg-primary-100 text-primary-800 px-2 py-1 rounded text-xs font-medium">
-                      {job.employmentType === 'part-time' ? 'Medio Tiempo' : 'Tiempo Completo'}
+                      {job.employmentType === 'part-time' ? 'Part Time' : 'Full Time'}
                     </span>
                     <span className="text-xs text-gray-500">
                       {new Date(job.createdAt).toLocaleDateString()}
@@ -227,7 +227,7 @@ const Home = () => {
                     to={`/jobs/${job._id}`}
                     className="text-primary-600 hover:text-primary-700 font-medium flex items-center text-sm"
                   >
-                    Ver detalles
+                    View details
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 </div>
@@ -236,7 +236,7 @@ const Home = () => {
 
             <div className="text-center">
               <Link to="/jobs" className="btn btn-primary">
-                Ver Todas las Pasantías
+                View All Internships
               </Link>
             </div>
           </div>
@@ -246,9 +246,9 @@ const Home = () => {
       {/* CTA Final */}
       <section className="py-16 bg-primary-600 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">¿Listo para comenzar tu pasantía?</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to start your internship?</h2>
           <p className="text-xl mb-8">
-            Oportunidad para que estudiantes panameños adquieran experiencia real, amplíen su red profesional, y avancen en su carrera.
+            Opportunity for Panamanian students to gain real experience, expand their professional network, and advance their career.
           </p>
           
           {!isAuthenticated ? (
@@ -257,13 +257,13 @@ const Home = () => {
                 to="/register"
                 className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors"
               >
-                Registrarse Gratis
+                Register Free
               </Link>
               <Link
                 to="/login"
                 className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-3 rounded-lg font-semibold transition-colors"
               >
-                Iniciar Sesión
+                Sign In
               </Link>
             </div>
           ) : (
@@ -271,7 +271,7 @@ const Home = () => {
               to="/dashboard"
               className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-colors inline-block"
             >
-              Ir al Dashboard
+              Go to Dashboard
             </Link>
           )}
         </div>

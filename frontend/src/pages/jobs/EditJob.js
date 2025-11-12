@@ -67,7 +67,7 @@ const EditJob = () => {
       });
     } catch (error) {
       console.error('Error fetching job:', error);
-      toast.error('Error al cargar el trabajo');
+      toast.error('Error loading job');
       navigate('/my-jobs');
     } finally {
       setLoading(false);
@@ -88,11 +88,11 @@ const EditJob = () => {
       };
 
       await jobsAPI.updateJob(id, processedData);
-      toast.success('Trabajo actualizado exitosamente');
+      toast.success('Job updated successfully');
       navigate(`/jobs/${id}`);
     } catch (error) {
       console.error('Error updating job:', error);
-      toast.error(error.response?.data?.message || 'Error al actualizar el trabajo');
+      toast.error(error.response?.data?.message || 'Error updating job');
     } finally {
       setSaving(false);
     }
@@ -103,7 +103,7 @@ const EditJob = () => {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <Loader2 className="w-8 h-8 animate-spin text-primary-600 mx-auto mb-4" />
-          <p className="text-gray-600">Cargando trabajo...</p>
+          <p className="text-gray-600">Loading job...</p>
         </div>
       </div>
     );
@@ -113,13 +113,13 @@ const EditJob = () => {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Trabajo no encontrado</h1>
-          <p className="text-gray-600 mb-6">El trabajo que intentas editar no existe.</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">Job not found</h1>
+          <p className="text-gray-600 mb-6">The job you are trying to edit does not exist.</p>
           <button
             onClick={() => navigate('/my-jobs')}
             className="btn btn-primary"
           >
-            Volver a Mis Trabajos
+            Back to My Jobs
           </button>
         </div>
       </div>
@@ -185,33 +185,33 @@ const EditJob = () => {
             className="inline-flex items-center text-primary-600 hover:text-primary-700 mb-4"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Volver al trabajo
+            Back to job
           </button>
           
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Editar Trabajo</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Edit Job</h1>
           <p className="text-gray-600">
-            Actualiza la información de tu vacante
+            Update your vacancy information
           </p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           {/* Basic Information */}
           <div className="bg-white rounded-xl shadow-soft p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Información Básica</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Basic Information</h2>
             
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Título del Puesto *
+                  Job Title *
                 </label>
                 <input
                   {...register('title', { 
-                    required: 'El título es requerido',
-                    minLength: { value: 5, message: 'Mínimo 5 caracteres' },
-                    maxLength: { value: 100, message: 'Máximo 100 caracteres' }
+                    required: 'Title is required',
+                    minLength: { value: 5, message: 'Minimum 5 characters' },
+                    maxLength: { value: 100, message: 'Maximum 100 characters' }
                   })}
                   className={`input ${errors.title ? 'border-danger-500' : ''}`}
-                  placeholder="Ej: Asistente de Ventas de Medio Tiempo"
+                  placeholder="E.g: Part-Time Sales Assistant"
                 />
                 {errors.title && (
                   <p className="mt-1 text-sm text-danger-600">{errors.title.message}</p>
@@ -220,17 +220,17 @@ const EditJob = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Descripción del Trabajo *
+                  Job Description *
                 </label>
                 <textarea
                   {...register('description', { 
-                    required: 'La descripción es requerida',
-                    minLength: { value: 50, message: 'Mínimo 50 caracteres' },
-                    maxLength: { value: 2000, message: 'Máximo 2000 caracteres' }
+                    required: 'Description is required',
+                    minLength: { value: 50, message: 'Minimum 50 characters' },
+                    maxLength: { value: 2000, message: 'Maximum 2000 characters' }
                   })}
                   rows={6}
                   className={`textarea ${errors.description ? 'border-danger-500' : ''}`}
-                  placeholder="Describe las responsabilidades, el ambiente de trabajo, y lo que hace especial este puesto..."
+                  placeholder="Describe the responsibilities, work environment, and what makes this position special..."
                 />
                 {errors.description && (
                   <p className="mt-1 text-sm text-danger-600">{errors.description.message}</p>
@@ -240,10 +240,10 @@ const EditJob = () => {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Tipo de Empleo *
+                    Employment Type *
                   </label>
                   <select
-                    {...register('employmentType', { required: 'El tipo de empleo es requerido' })}
+                    {...register('employmentType', { required: 'Employment type is required' })}
                     className={`select ${errors.employmentType ? 'border-danger-500' : ''}`}
                   >
                     {employmentTypes.map(type => (
@@ -362,7 +362,7 @@ const EditJob = () => {
                     type="checkbox"
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                   />
-                  <span className="ml-2 text-sm text-gray-700">Trabajo Remoto</span>
+                  <span className="ml-2 text-sm text-gray-700">Remote Work</span>
                 </label>
 
                 <label className="flex items-center">
@@ -371,7 +371,7 @@ const EditJob = () => {
                     type="checkbox"
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                   />
-                  <span className="ml-2 text-sm text-gray-700">Trabajo Híbrido</span>
+                  <span className="ml-2 text-sm text-gray-700">Hybrid Work</span>
                 </label>
               </div>
             </div>
@@ -487,7 +487,7 @@ const EditJob = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Días de Trabajo
+                  Working Days
                 </label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {days.map(day => (
