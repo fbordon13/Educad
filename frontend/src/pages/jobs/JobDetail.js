@@ -340,7 +340,7 @@ const JobDetail = () => {
                     <div className="text-center">
                       <AlertCircle className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
                       <p className="text-gray-600">
-                        Businesses cannot apply to jobs.
+                        Los negocios no pueden aplicar a trabajos.
                       </p>
                     </div>
                   ) : (
@@ -348,14 +348,14 @@ const JobDetail = () => {
                       {job.requiresCoverLetter && (
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Cover Letter (Optional)
+                            Carta de Presentación (Opcional)
                           </label>
                           <textarea
                             value={coverLetter}
                             onChange={(e) => setCoverLetter(e.target.value)}
                             rows={4}
                             className="textarea"
-                            placeholder="Explain why you are the ideal candidate for this job..."
+                            placeholder="Explica por qué eres el candidato ideal para este trabajo..."
                           />
                         </div>
                       )}
@@ -368,10 +368,10 @@ const JobDetail = () => {
                         {applying ? (
                           <>
                             <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                            Applying...
+                            Aplicando...
                           </>
                         ) : (
-                          'Apply Now'
+                          'Aplicar Ahora'
                         )}
                       </button>
                     </>
@@ -382,11 +382,11 @@ const JobDetail = () => {
 
             {/* Job Details */}
             <div className="bg-white rounded-xl shadow-soft p-6">
-              <h3 className="text-lg font-bold text-gray-900 mb-4">Job Details</h3>
+              <h3 className="text-lg font-bold text-gray-900 mb-4">Detalles del Trabajo</h3>
               
               <div className="space-y-4">
                 <div>
-                  <span className="text-sm font-medium text-gray-500">Employment Type</span>
+                  <span className="text-sm font-medium text-gray-500">Tipo de Empleo</span>
                   <p className="text-gray-900">{getEmploymentTypeLabel(job.employmentType)}</p>
                 </div>
 

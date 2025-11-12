@@ -1,16 +1,16 @@
-# ServiEduca - Internships and Professional Practices in Panama
+# ServiEduca - Pasantías y Prácticas Profesionales en Panamá
 
-A web platform that connects Panamanian students with internship and professional practice opportunities in companies and organizations.
+Una plataforma web que conecta estudiantes panameños con oportunidades de pasantías y prácticas profesionales en empresas y organizaciones.
 
-## Features
+## Características
 
-- **Home page** with information about internships in Panama
-- **Dual user system**: Students and Businesses
-- **Dashboard** for each user type
-- **One-click application system**
-- **Complete internship management** (create, edit, delete)
-- **CV upload** and complete profiles
-- **Information about requirements and benefits** of internships
+- **Página principal** con información sobre pasantías en Panamá
+- **Sistema de usuarios dual**: Estudiantes y Empresas
+- **Panel de control** para cada tipo de usuario
+- **Sistema de aplicaciones** con un clic
+- **Gestión completa de pasantías** (crear, editar, eliminar)
+- **Subida de CV** y perfiles completos
+- **Información sobre requisitos y beneficios** de las pasantías
 
 ## Tecnologías
 
@@ -29,36 +29,36 @@ A web platform that connects Panamanian students with internship and professiona
 - JWT
 - Multer (para archivos)
 
-## Installation
+## Instalación
 
-1. Clone the repository
+1. Clona el repositorio
 ```bash
 git clone https://github.com/fbordon13/Educad.git
 cd ServiEduca
 ```
 
-2. Install all dependencies
+2. Instala todas las dependencias
 ```bash
 npm run install-all
 ```
 
-3. Configure environment variables
+3. Configura las variables de entorno
 ```bash
-# In backend/.env
+# En backend/.env
 MONGODB_URI=mongodb://localhost:27017/servieduca
-JWT_SECRET=your-jwt-secret-here
+JWT_SECRET=tu-jwt-secret-aqui
 PORT=5000
 
-# In frontend/.env
+# En frontend/.env
 REACT_APP_API_URL=http://localhost:5000/api
 ```
 
-4. Run the project in development mode
+4. Ejecuta el proyecto en modo desarrollo
 ```bash
 npm run dev
 ```
 
-This will start both the backend server (port 5000) and the frontend (port 3000).
+Esto iniciará tanto el servidor backend (puerto 5000) como el frontend (puerto 3000).
 
 ## Estructura del Proyecto
 
@@ -70,38 +70,38 @@ ServiEduca/
 └── README.md
 ```
 
-## Features
+## Funcionalidades
 
-### For Students
-- Registration and login
-- Complete profile with CV
-- Search and apply for internships
-- View application history
-- Personal dashboard
-- Information about requirements and benefits
+### Para Estudiantes
+- Registro e inicio de sesión
+- Completar perfil con CV
+- Buscar y aplicar a pasantías
+- Ver historial de aplicaciones
+- Panel de control personal
+- Información sobre requisitos y beneficios
 
-### For Businesses
-- Registration and login
-- Post internship opportunities
-- Manage offers (edit/delete)
-- Review received applications
-- Business dashboard
+### Para Empresas
+- Registro e inicio de sesión
+- Publicar oportunidades de pasantías
+- Gestionar ofertas (editar/eliminar)
+- Revisar aplicaciones recibidas
+- Panel de control empresarial
 
 ## API Endpoints
 
-### Authentication
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - Login
-- `GET /api/auth/profile` - Get current profile
+### Autenticación
+- `POST /api/auth/register` - Registro de usuario
+- `POST /api/auth/login` - Inicio de sesión
+- `GET /api/auth/profile` - Obtener perfil actual
 
-### Internships
-- `GET /api/jobs` - List all internships
-- `POST /api/jobs` - Create new internship (businesses only)
-- `GET /api/jobs/:id` - Get specific internship
-- `PUT /api/jobs/:id` - Update internship (owner only)
-- `DELETE /api/jobs/:id` - Delete internship (owner only)
+### Pasantías
+- `GET /api/jobs` - Listar todas las pasantías
+- `POST /api/jobs` - Crear nueva pasantía (solo empresas)
+- `GET /api/jobs/:id` - Obtener pasantía específica
+- `PUT /api/jobs/:id` - Actualizar pasantía (solo propietario)
+- `DELETE /api/jobs/:id` - Eliminar pasantía (solo propietario)
 
-### Applications
-- `POST /api/applications` - Apply for internship
-- `GET /api/applications/job/:jobId` - View applications for an internship
-- `GET /api/applications/user` - View current user's applications
+### Aplicaciones
+- `POST /api/applications` - Aplicar a pasantía
+- `GET /api/applications/job/:jobId` - Ver aplicaciones de una pasantía
+- `GET /api/applications/user` - Ver aplicaciones del usuario actual

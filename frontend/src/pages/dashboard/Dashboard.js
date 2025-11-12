@@ -379,8 +379,8 @@ const Dashboard = () => {
               <Download className="w-6 h-6 text-orange-600" />
             </div>
             <div>
-              <h3 className="font-medium text-gray-900">Export Data</h3>
-              <p className="text-sm text-gray-600">Download Excel files</p>
+              <h3 className="font-medium text-gray-900">Exportar Datos</h3>
+              <p className="text-sm text-gray-600">Descargar archivos Excel</p>
             </div>
           </Link>
         </div>

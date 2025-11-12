@@ -46,10 +46,10 @@ const ExportData = () => {
       link.remove();
       window.URL.revokeObjectURL(url);
 
-      toast.success(`Successfully exported ${type} data to Excel`);
+      toast.success(`Datos de ${type === 'users' ? 'usuarios' : type === 'jobs' ? 'trabajos' : type === 'applications' ? 'aplicaciones' : 'todos los datos'} exportados exitosamente a Excel`);
     } catch (error) {
       console.error('Error exporting data:', error);
-      toast.error(error.response?.data?.message || `Error exporting ${type} data`);
+      toast.error(error.response?.data?.message || `Error al exportar datos de ${type}`);
     } finally {
       setExporting(null);
     }
@@ -58,29 +58,29 @@ const ExportData = () => {
   const exportOptions = [
     {
       id: 'users',
-      title: 'Export Users',
-      description: 'Export all registered users (students and businesses)',
+      title: 'Exportar Usuarios',
+      description: 'Exporta todos los usuarios registrados (estudiantes y empresas)',
       icon: Users,
       color: 'bg-blue-500'
     },
     {
       id: 'jobs',
-      title: 'Export Jobs',
-      description: 'Export all job postings with complete details',
+      title: 'Exportar Trabajos',
+      description: 'Exporta todas las vacantes publicadas con detalles completos',
       icon: Briefcase,
       color: 'bg-green-500'
     },
     {
       id: 'applications',
-      title: 'Export Applications',
-      description: 'Export all job applications with applicant information',
+      title: 'Exportar Aplicaciones',
+      description: 'Exporta todas las aplicaciones a trabajos con información de candidatos',
       icon: FileText,
       color: 'bg-purple-500'
     },
     {
       id: 'all',
-      title: 'Export All Data',
-      description: 'Export everything in a single Excel file with multiple sheets',
+      title: 'Exportar Todo',
+      description: 'Exporta todo en un solo archivo Excel con múltiples hojas',
       icon: Database,
       color: 'bg-orange-500'
     }
@@ -91,9 +91,9 @@ const ExportData = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Export Data to Excel</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Exportar Datos a Excel</h1>
           <p className="text-gray-600">
-            Download all registered information in Excel format for analysis and reporting
+            Descarga toda la información registrada en formato Excel para análisis y reportes
           </p>
         </div>
 
@@ -127,12 +127,12 @@ const ExportData = () => {
                       {isExporting ? (
                         <>
                           <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                          Exporting...
+                          Exportando...
                         </>
                       ) : (
                         <>
                           <Download className="w-5 h-5 mr-2" />
-                          Download Excel
+                          Descargar Excel
                         </>
                       )}
                     </button>
@@ -148,13 +148,13 @@ const ExportData = () => {
           <div className="flex items-start space-x-3">
             <FileSpreadsheet className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
             <div>
-              <h3 className="font-semibold text-blue-900 mb-2">About Excel Exports</h3>
+              <h3 className="font-semibold text-blue-900 mb-2">Acerca de las Exportaciones a Excel</h3>
               <ul className="text-sm text-blue-800 space-y-1">
-                <li>• All data is exported in Microsoft Excel format (.xlsx)</li>
-                <li>• Files include all relevant information from the database</li>
-                <li>• "Export All Data" creates a single file with multiple sheets</li>
-                <li>• Files are automatically named with timestamps</li>
-                <li>• Large exports may take a few moments to generate</li>
+                <li>• Todos los datos se exportan en formato Microsoft Excel (.xlsx)</li>
+                <li>• Los archivos incluyen toda la información relevante de la base de datos</li>
+                <li>• "Exportar Todo" crea un solo archivo con múltiples hojas</li>
+                <li>• Los archivos se nombran automáticamente con timestamps</li>
+                <li>• Las exportaciones grandes pueden tardar unos momentos en generarse</li>
               </ul>
             </div>
           </div>

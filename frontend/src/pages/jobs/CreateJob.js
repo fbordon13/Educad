@@ -44,11 +44,11 @@ const CreateJob = () => {
     try {
       setLoading(true);
       const response = await jobsAPI.createJob(data);
-      toast.success('Job created successfully');
+      toast.success('Trabajo creado exitosamente');
       navigate(`/jobs/${response.data.job._id}`);
     } catch (error) {
       console.error('Error creating job:', error);
-      toast.error(error.response?.data?.message || 'Error creating job');
+      toast.error(error.response?.data?.message || 'Error al crear el trabajo');
     } finally {
       setLoading(false);
     }
@@ -101,30 +101,30 @@ const CreateJob = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Post Job</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Publicar Trabajo</h1>
           <p className="text-gray-600">
-            Create a new vacancy to find the talent you need
+            Crea una nueva vacante para encontrar el talento que necesitas
           </p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           {/* Basic Information */}
           <div className="bg-white rounded-xl shadow-soft p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Basic Information</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Información Básica</h2>
             
             <div className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Job Title *
+                  Título del Puesto *
                 </label>
                 <input
                   {...register('title', { 
-                    required: 'Title is required',
-                    minLength: { value: 5, message: 'Minimum 5 characters' },
-                    maxLength: { value: 100, message: 'Maximum 100 characters' }
+                    required: 'El título es requerido',
+                    minLength: { value: 5, message: 'Mínimo 5 caracteres' },
+                    maxLength: { value: 100, message: 'Máximo 100 caracteres' }
                   })}
                   className={`input ${errors.title ? 'border-danger-500' : ''}`}
-                  placeholder="E.g: Part-Time Sales Assistant"
+                  placeholder="Ej: Asistente de Ventas de Medio Tiempo"
                 />
                 {errors.title && (
                   <p className="mt-1 text-sm text-danger-600">{errors.title.message}</p>
@@ -133,17 +133,17 @@ const CreateJob = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Job Description *
+                  Descripción del Trabajo *
                 </label>
                 <textarea
                   {...register('description', { 
-                    required: 'Description is required',
-                    minLength: { value: 50, message: 'Minimum 50 characters' },
-                    maxLength: { value: 2000, message: 'Maximum 2000 characters' }
+                    required: 'La descripción es requerida',
+                    minLength: { value: 50, message: 'Mínimo 50 caracteres' },
+                    maxLength: { value: 2000, message: 'Máximo 2000 caracteres' }
                   })}
                   rows={6}
                   className={`textarea ${errors.description ? 'border-danger-500' : ''}`}
-                  placeholder="Describe the responsibilities, work environment, and what makes this position special..."
+                  placeholder="Describe las responsabilidades, el ambiente de trabajo, y lo que hace especial este puesto..."
                 />
                 {errors.description && (
                   <p className="mt-1 text-sm text-danger-600">{errors.description.message}</p>
@@ -153,10 +153,10 @@ const CreateJob = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Employment Type *
+                    Tipo de Empleo *
                   </label>
                   <select
-                    {...register('employmentType', { required: 'Employment type is required' })}
+                    {...register('employmentType', { required: 'El tipo de empleo es requerido' })}
                     className={`select ${errors.employmentType ? 'border-danger-500' : ''}`}
                   >
                     {employmentTypes.map(type => (
@@ -172,10 +172,10 @@ const CreateJob = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Category *
+                    Categoría *
                   </label>
                   <select
-                    {...register('category', { required: 'Category is required' })}
+                    {...register('category', { required: 'La categoría es requerida' })}
                     className={`select ${errors.category ? 'border-danger-500' : ''}`}
                   >
                     {categories.map(category => (
@@ -194,7 +194,7 @@ const CreateJob = () => {
 
           {/* Location */}
           <div className="bg-white rounded-xl shadow-soft p-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Location</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Ubicación</h2>
             
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -259,7 +259,7 @@ const CreateJob = () => {
                     type="checkbox"
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                   />
-                  <span className="ml-2 text-sm text-gray-700">Remote Work</span>
+                  <span className="ml-2 text-sm text-gray-700">Trabajo Remoto</span>
                 </label>
 
                 <label className="flex items-center">
@@ -268,7 +268,7 @@ const CreateJob = () => {
                     type="checkbox"
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded"
                   />
-                  <span className="ml-2 text-sm text-gray-700">Hybrid Work</span>
+                  <span className="ml-2 text-sm text-gray-700">Trabajo Híbrido</span>
                 </label>
               </div>
             </div>
@@ -384,7 +384,7 @@ const CreateJob = () => {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Working Days
+                  Días de Trabajo
                 </label>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                   {days.map(day => (

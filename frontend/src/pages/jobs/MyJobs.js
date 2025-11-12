@@ -42,25 +42,25 @@ const MyJobs = () => {
       setPagination(response.data.pagination);
     } catch (error) {
       console.error('Error fetching jobs:', error);
-      toast.error('Error loading your jobs');
+      toast.error('Error al cargar tus trabajos');
     } finally {
       setLoading(false);
     }
   };
 
   const handleDeleteJob = async (jobId) => {
-    if (!confirm('Are you sure you want to delete this job? This action cannot be undone.')) {
+    if (!confirm('¿Estás seguro de que quieres eliminar este trabajo? Esta acción no se puede deshacer.')) {
       return;
     }
 
     try {
       setDeletingJob(jobId);
       await jobsAPI.deleteJob(jobId);
-      toast.success('Job deleted successfully');
+      toast.success('Trabajo eliminado exitosamente');
       fetchJobs(); // Refresh the list
     } catch (error) {
       console.error('Error deleting job:', error);
-      toast.error('Error deleting job');
+      toast.error('Error al eliminar el trabajo');
     } finally {
       setDeletingJob(null);
     }
@@ -127,9 +127,9 @@ const MyJobs = () => {
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">My Jobs</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Mis Trabajos</h1>
             <p className="text-gray-600">
-              Manage the vacancies you have posted
+              Gestiona las vacantes que has publicado
             </p>
           </div>
           
@@ -138,7 +138,7 @@ const MyJobs = () => {
             className="btn btn-primary btn-lg"
           >
             <Plus className="w-5 h-5 mr-2" />
-            Post Job
+            Publicar Trabajo
           </Link>
         </div>
 
@@ -168,7 +168,7 @@ const MyJobs = () => {
             </div>
             
             <div className="text-sm text-gray-600">
-              {pagination.totalJobs ? `${pagination.totalJobs} jobs` : 'Loading...'}
+              {pagination.totalJobs ? `${pagination.totalJobs} trabajos` : 'Cargando...'}
             </div>
           </div>
         </div>
@@ -178,7 +178,7 @@ const MyJobs = () => {
           <div className="flex items-center justify-center py-12">
             <div className="text-center">
               <Loader2 className="w-8 h-8 animate-spin text-primary-600 mx-auto mb-4" />
-              <p className="text-gray-600">Loading jobs...</p>
+              <p className="text-gray-600">Cargando trabajos...</p>
             </div>
           </div>
         ) : jobs.length > 0 ? (
@@ -241,7 +241,7 @@ const MyJobs = () => {
                     className="btn btn-outline btn-sm flex-1"
                   >
                     <Edit className="w-4 h-4 mr-2" />
-                    Edit
+                    Editar
                   </Link>
                   
                   <button
@@ -273,12 +273,12 @@ const MyJobs = () => {
           <div className="text-center py-12">
             <Briefcase className="w-16 h-16 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">
-              {selectedStatus ? 'You have no jobs with the selected status' : 'You have not posted any jobs'}
+              {selectedStatus ? 'No tienes trabajos con el estado seleccionado' : 'No has publicado trabajos'}
             </h3>
             <p className="text-gray-600 mb-6">
               {selectedStatus 
-                ? 'Try changing the filter or post a new job.'
-                : 'Start by posting your first vacancy to find talent.'
+                ? 'Intenta cambiar el filtro o publica un nuevo trabajo.'
+                : 'Comienza publicando tu primera vacante para encontrar talento.'
               }
             </p>
             <Link
@@ -286,7 +286,7 @@ const MyJobs = () => {
               className="btn btn-primary"
             >
               <Plus className="w-5 h-5 mr-2" />
-              Post Job
+              Publicar Trabajo
             </Link>
           </div>
         )}
